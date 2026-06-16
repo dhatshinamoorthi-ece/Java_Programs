@@ -1,4 +1,4 @@
-![Banner](banner.png)
+![Banner](https://...)
 # Hi, I'm Moorthi 👋
 
 🎓 ECE Student
