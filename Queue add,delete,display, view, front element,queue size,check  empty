@@ -1,0 +1,89 @@
+import java.util.*;
+
+class QueueManagementSystem {
+
+    public static void displayQueue(Queue<Long> queue) {
+        if (queue.isEmpty()) {
+            System.out.println("Queue is empty.");
+        } else {
+            System.out.println("Current Queue: " + queue);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Queue<Long> queue = new LinkedList<>();
+
+        while (true) {
+            System.out.println("\n===== QUEUE MENU =====");
+            System.out.println("1. Add Element");
+            System.out.println("2. Remove Element");
+            System.out.println("3. View Front Element");
+            System.out.println("4. Display Queue");
+            System.out.println("5. Queue Size");
+            System.out.println("6. Check Empty");
+            System.out.println("7. Clear Queue");
+            System.out.println("8. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter long value to add: ");
+                    long value = sc.nextLong();
+                    queue.offer(value);
+                    System.out.println(value + " added to queue.");
+                    break;
+
+                case 2:
+                    if (queue.isEmpty()) {
+                        System.out.println("Queue is empty.");
+                    } else {
+                        long removed = queue.poll();
+                        System.out.println("Removed element: " + removed);
+                    }
+                    break;
+
+                case 3:
+                    if (queue.isEmpty()) {
+                        System.out.println("Queue is empty.");
+                    } else {
+                        System.out.println("Front element: " + queue.peek());
+                    }
+                    break;
+
+                case 4:
+                    displayQueue(queue);
+                    break;
+
+                case 5:
+                    System.out.println("Queue Size: " + queue.size());
+                    break;
+
+                case 6:
+                    if (queue.isEmpty()) {
+                        System.out.println("Queue is empty.");
+                    } else {
+                        System.out.println("Queue is not empty.");
+                    }
+                    break;
+
+                case 7:
+                    queue.clear();
+                    System.out.println("Queue cleared successfully.");
+                    break;
+
+                case 8:
+                    System.out.println("Exiting program...");
+                    sc.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+}
